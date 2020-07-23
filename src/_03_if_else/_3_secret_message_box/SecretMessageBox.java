@@ -1,55 +1,49 @@
 package _03_if_else._3_secret_message_box;
 //    Copyright (c) The League of Amazing Programmers 2013-2019
-//    Level 0
 
+//    Level 0
 
 import java.util.Random;
 
 import javax.swing.JOptionPane;
 
 /**
-// Secret Message Box / Secure Messaging System
+ * // Secret Message Box / Secure Messaging System
  * 
- * You want to leave a message on one of the Mac computers so that only your friend can read it.
- * You set up the passcode and the secret message. 
- * Your friend types in the passcode to retrieve the message.
+ * You want to leave a message on one of the Mac computers so that only your
+ * friend can read it. You set up the passcode and the secret message. Your
+ * friend types in the passcode to retrieve the message.
  * 
  */
 
 public class SecretMessageBox {
 
-	// 0. Make a main method and put steps 1-5 inside it
 	public static void main(String[] args) {
 		Random r = new Random();
-		int low = 10000;
-		int high = 99999;
-		int auth = r.nextInt(high-low) + low; 
-		
-
-	// 1. Set a password in a String variable
-	String password = JOptionPane.showInputDialog("Create a passcode");
-	// 2. Using a pop-up, ask the first person for a secret message and store it in a variable
-	JOptionPane.showMessageDialog(null, "Your 5-digit Authentication code is " + auth + "");
-	
-	String secret = JOptionPane.showInputDialog("Write a secret message.");
-	// 3. Now use a pop-up to tell the NEXT user that they can only see the secret message 
-	//    if they can guess the passcode
-JOptionPane.showMessageDialog(null, "You can only see the secret message if you guess the passcode and authentication code.");
-String answer = JOptionPane.showInputDialog("What is the passcode?");
-// 4. If their guess matches the password, show them the secret message
-if(answer.equals(password))	{
-	String auin = JOptionPane.showInputDialog("What is the authentication code?");
-	if(auin.equals(auth))	{
-	JOptionPane.showMessageDialog(null, "The secret message is \"" + secret + " \"");
+		int auth = r.nextInt(999999 - 100000) + 100000;
+		String auin = "" + auth + "";
+		int math1 = r.nextInt(9999 - 2) + 2;
+		int math2 = r.nextInt(9999 - 2) + 2;
+		int answermath = math1 * math2;
+		String answermathst = "" + answermath + "";
+		String password = JOptionPane.showInputDialog("Create a passcode");
+		JOptionPane.showMessageDialog(null, "Your 6-digit Authentication code is " + auth + "");
+		String secret = JOptionPane.showInputDialog("Write a secret message.");
+		JOptionPane.showMessageDialog(null, 
+"You can only see the secret message if you guess the password, authentication code, math problem, the Prime Minister of Cameroon, and how to say 'yellow' in Latin.");
+		String answer = JOptionPane.showInputDialog("What is the password?");
+		if (answer.equals(password)) {
+			String answer2 = JOptionPane.showInputDialog("What is the authentication code?");
+			if (answer2.equals(auin)) {
+				String answermathin = JOptionPane.showInputDialog("What is " + math1 + " times " + math2 + "");
+				if (answermathin.equals(answermathst)) {
+					String cameroon = JOptionPane.showInputDialog("Who is the Prime Minister of Cameroon");
+					if (cameroon.equalsIgnoreCase("Joseph Ngute")) {
+						String yellow = JOptionPane.showInputDialog("How do you say yellow in Latin?");
+						if (yellow.equalsIgnoreCase("Flavo")) {
+							JOptionPane.showMessageDialog(null, "The secret message is \""+secret+" \"");
+							} else { in(); }} else { in(); }} else { in(); }} else { in(); }} else { in(); } }
+	static void in()	{
+		JOptionPane.showMessageDialog(null, "INTRUDER!!!");
 	}
-else	{
-	JOptionPane.showMessageDialog(null, "INTRUDER!!!");
-}
-}
-	// 5. If the password does not match, pop-up "INTRUDER!!"
-else	{
-	JOptionPane.showMessageDialog(null, "INTRUDER!!!");
-}
-
-}
-}
+	}
